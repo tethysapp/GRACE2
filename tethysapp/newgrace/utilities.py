@@ -33,7 +33,7 @@ def get_global_dates():
 
     nc_fid = Dataset(grace_nc, 'r')  # Reading the netcdf file
     nc_var = nc_fid.variables  # Get the netCDF variables
-    nc_var.keys()  # Getting variable keys
+    list(nc_var.keys())  # Getting variable keys
 
     time = nc_var['time'][:]
 
@@ -73,7 +73,7 @@ def get_global_plot_api(pt_coords,start_date,end_date,GLOBAL_NC):
 
     nc_fid = Dataset(nc_file, 'r')
     nc_var = nc_fid.variables  # Get the netCDF variables
-    nc_var.keys()  # Getting variable keys
+    list(nc_var.keys())  # Getting variable keys
 
     time = nc_var['time'][:]
     start_date = '2002-01-01'
@@ -95,7 +95,7 @@ def get_global_plot_api(pt_coords,start_date,end_date,GLOBAL_NC):
         value = data[lat_idx, lon_idx]
 
         time_stamp = calendar.timegm(actual_date.utctimetuple()) * 1000
-        if start_date < unicode(actual_date) < end_date:
+        if start_date < str(actual_date) < end_date:
             ts_plot.append([time_stamp, round(float(value), 3)])
             ts_plot.sort()
 
@@ -123,7 +123,7 @@ def get_pt_region(pt_coords,nc_file):
 
     nc_fid = Dataset(nc_file, 'r')
     nc_var = nc_fid.variables  # Get the netCDF variables
-    nc_var.keys()  # Getting variable keys
+    list(nc_var.keys())  # Getting variable keys
 
     time = nc_var['time'][:]
     start_date = '01/01/2002'
@@ -184,7 +184,7 @@ def get_global_plot(pt_coords,global_netc):
 
     nc_fid = Dataset(nc_file, 'r')
     nc_var = nc_fid.variables  # Get the netCDF variables
-    nc_var.keys()  # Getting variable keys
+    list(nc_var.keys())  # Getting variable keys
 
 
     time = nc_var['time'][:]

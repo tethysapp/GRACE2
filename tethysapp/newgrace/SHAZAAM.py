@@ -73,7 +73,7 @@ def subset2(shapefile,region_name,GLOBAL_DIR,display_name,thredds_id):
         print('Read polygon shapefile')
         gbyos_pol_lay = fiona.open(pol_shp, 'r')
         IS_pol_tot = len(gbyos_pol_lay)
-        print(' - The number of polygon features is: ' + str(IS_pol_tot))
+        print((' - The number of polygon features is: ' + str(IS_pol_tot)))
 
         # *******************************************************************************
         # Create spatial index for the bounds of each polygon feature
@@ -85,7 +85,7 @@ def subset2(shapefile,region_name,GLOBAL_DIR,display_name,thredds_id):
             """Explode a GeoJSON geometry's coordinates object and yield coordinate tuples.
             As long as the input is conforming, the type of the geometry doesn't matter."""
             for e in coords:
-                if isinstance(e, (float, int, long)):
+                if isinstance(e, (float, int)):
                     yield coords
                     break
                 else:
@@ -93,7 +93,7 @@ def subset2(shapefile,region_name,GLOBAL_DIR,display_name,thredds_id):
                         yield f
 
         def bbox(f):
-            x, y = zip(*list(explode(f['geometry']['coordinates'])))
+            x, y = list(zip(*list(explode(f['geometry']['coordinates']))))
             return min(x), min(y), max(x), max(y)
 
         for gbyos_pol_fea in gbyos_pol_lay:
@@ -697,7 +697,7 @@ def sub_update_ps(shapefile,region_name,GLOBAL_DIR,display_name,thredds_id):
         print('Read polygon shapefile')
         gbyos_pol_lay = fiona.open(pol_shp, 'r')
         IS_pol_tot = len(gbyos_pol_lay)
-        print(' - The number of polygon features is: ' + str(IS_pol_tot))
+        print((' - The number of polygon features is: ' + str(IS_pol_tot)))
 
         # *******************************************************************************
         # Create spatial index for the bounds of each polygon feature
@@ -709,7 +709,7 @@ def sub_update_ps(shapefile,region_name,GLOBAL_DIR,display_name,thredds_id):
             """Explode a GeoJSON geometry's coordinates object and yield coordinate tuples.
             As long as the input is conforming, the type of the geometry doesn't matter."""
             for e in coords:
-                if isinstance(e, (float, int, long)):
+                if isinstance(e, (float, int)):
                     yield coords
                     break
                 else:
@@ -717,7 +717,7 @@ def sub_update_ps(shapefile,region_name,GLOBAL_DIR,display_name,thredds_id):
                         yield f
 
         def bbox(f):
-            x, y = zip(*list(explode(f['geometry']['coordinates'])))
+            x, y = list(zip(*list(explode(f['geometry']['coordinates']))))
             return min(x), min(y), max(x), max(y)
         def area_calc(f):
             gj = {'type': f['geometry']['type'], 'coordinates': f['geometry']['coordinates']}

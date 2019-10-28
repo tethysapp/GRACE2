@@ -41,7 +41,7 @@ def write_gldas_text_file(directory):
     start_date = '01/01/2002:00:00'
     nc_fid = Dataset(grace_nc, 'r') #Reading the netcdf file
     nc_var = nc_fid.variables # Get netcdf Variables
-    nc_var.keys() #Getting Variable Keys
+    list(nc_var.keys()) #Getting Variable Keys
 
     time = nc_var['time'][:]
 

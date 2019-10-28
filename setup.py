@@ -12,10 +12,14 @@ app_package_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'teth
 ### Python Dependencies ###
 dependencies = []
 
+
+# List of deps
+
+# conda install -c conda-forge gdal numpy netCDF4 fiona shapely pyshp rtree geojson
+
 setup(
     name=release_package,
-    version='0.0.1',
-    tags='&quot;Hydrology&quot;, &quot;Groundwater&quot;',
+    version='2.0.0',
     description='The GRACE application is a visualization tool for GRACE global satellite data. It also provides visualization for global surface water, soil moisture, and groundwater data.',
     long_description='',
     keywords='',

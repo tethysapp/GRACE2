@@ -9,7 +9,7 @@ from tethys_dataset_services.engines import GeoServerSpatialDatasetEngine
 from sqlalchemy.orm.exc import ObjectDeletedError
 from sqlalchemy.exc import IntegrityError
 from .model import *
-import requests, urlparse
+import requests, urllib.parse
 import shapely.geometry
 import os
 from .app import *
@@ -516,7 +516,7 @@ def thredds_server_add(request):
             session.close()
             response = {"data": thredds_server_name, "success": "Success"}
         except Exception as e:
-            print e
+            print(e)
             response={"error":"Error processing the Thredds Server URL. Please check the url,username and password."}
 
 
