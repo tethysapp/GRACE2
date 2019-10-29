@@ -16,6 +16,7 @@ dependencies = []
 # List of deps
 
 # conda install -c conda-forge gdal numpy netCDF4 fiona shapely pyshp rtree geojson
+# pip install area
 
 setup(
     name=release_package,
