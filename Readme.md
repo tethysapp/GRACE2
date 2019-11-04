@@ -22,3 +22,7 @@ pip install area
 
 1. custom settings:  there are 2 custom settings.  one of them is the thredds base url and should end in grace/ (ie https://tethys.byu.edu/thredds/)
 1. The other setting is the path to the mounted folder where the grace files are stored (ie /Users/tmcstraw/thredds_data/grace/) . This one should end in ...../grace/
+
+### Thredds Installation Notes
+
+1. We need to copy the .pal file included in the root of this repo to our thredds server. It needs to be places at /apache-tomcat-8.5.42/webapps/thredds/WEB-INF/palettes
