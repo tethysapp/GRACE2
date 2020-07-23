@@ -1,0 +1,19 @@
+version: 2.0.0
+name: newgrace
+
+requirements:
+  conda:
+    channels:
+      - conda-forge
+    packages:
+      - gdal
+      - numpy
+      - netCDF4
+      - fiona
+      - shapely
+      - pyshp
+      - rtree
+      - geojson
+  pip:
+    - area
+
